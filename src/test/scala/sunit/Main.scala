@@ -11,10 +11,11 @@ object Main {
     assertEquals(new TestCase(TestAssert.testAssertThrowsIfActualDoesNotEqualExpected).run(), TestResult(1, 1))
     assertEquals(new TestCase(TestTestResult.testErrorIncrementErrorCounter).run(), TestResult(1, 0))
 
-    val testSuite: TestSuite = new TestSuite()
-    testSuite.addTest(new TestCase(TestTestCase.testDoNothing))
-    testSuite.addTest(new TestCase(TestAssert.testAssertDoesNotThrowIfActualEqualsExpected))
-    testSuite.addTest(new TestCase(TestAssert.testAssertThrowsIfActualDoesNotEqualExpected))
+    val testSuite: TestSuite = new TestSuite(
+      new TestCase(TestTestCase.testDoNothing),
+      new TestCase(TestAssert.testAssertDoesNotThrowIfActualEqualsExpected),
+      new TestCase(TestAssert.testAssertThrowsIfActualDoesNotEqualExpected)
+    )
     assertEquals(testSuite.run(), TestResult(3, 1))
 
     val templateTest = new TestCase(TestTemplate.testBeforeRunAfterOrder)
