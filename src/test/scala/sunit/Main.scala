@@ -16,6 +16,9 @@ object Main {
     testSuite.addTest(new TestCase(TestAssert.testAssertDoesNotThrowIfActualEqualsExpected))
     testSuite.addTest(new TestCase(TestAssert.testAssertThrowsIfActualDoesNotEqualExpected))
     assertEquals(testSuite.run(), TestResult(3, 1))
+
+    val templateTest = new TestCase(TestTemplate.testBeforeRunAfterOrder)
+    assertEquals(templateTest.run(), TestResult(1,0))
   }
 
 

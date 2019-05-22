@@ -2,13 +2,14 @@ package sunit
 
 class TestCase(method: () => Any) extends Test {
 
-  def run(): TestResult = {
+  override def run(): TestResult = {
     val testResult = TestResult(1, 0)
     try {
-      method.apply()
+      method()
       testResult
     } catch {
-      case _: Throwable =>
+      case t: Throwable =>
+        println(t.getMessage)
         testResult.error()
     }
   }
