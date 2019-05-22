@@ -8,7 +8,7 @@ object TestTemplate {
      .before(order += "before")
       .after(order += "after")
       .run()
-    Assert.assertEquals(order,"before run after2")
+    Assert.assertEquals(order,"before run after")
   }
 
 
