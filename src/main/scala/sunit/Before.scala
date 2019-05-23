@@ -12,4 +12,5 @@ class Before(before: => Any, test: Test) extends Test {
         TestResult(0, 0)
     }
   }
+
 }

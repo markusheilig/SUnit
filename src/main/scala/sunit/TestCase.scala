@@ -1,15 +1,16 @@
 package sunit
 
+import scala.util.{Failure, Success, Try}
+
 class TestCase(method: () => Any) extends Test {
 
   override def run(): TestResult = {
     val testResult = TestResult(1, 0)
-    try {
-      method()
-      testResult
-    } catch {
-      case t: Throwable =>
-        println(t.getMessage)
+    Try(method()) match {
+      case Success(_) =>
+        testResult
+      case Failure(err) =>
+        println(err.getMessage)
         testResult.error()
     }
   }

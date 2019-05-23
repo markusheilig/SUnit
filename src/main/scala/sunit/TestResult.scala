@@ -6,7 +6,6 @@ case class TestResult(testCount: Int, errorCount: Int) {
     copy(testCount = testCount + other.testCount, errorCount = errorCount + other.errorCount)
   }
 
-
   def error(): TestResult = {
     copy(errorCount = errorCount + 1)
   }
