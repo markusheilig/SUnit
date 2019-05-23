@@ -20,6 +20,9 @@ object Main {
 
     val templateTest = new TestCase(TestTemplate.testBeforeRunAfterOrder)
     assertEquals(templateTest.run(), TestResult(1,0))
+
+    val exceptionInBeforeTest = new TestCase(TestTemplate.testExceptionInBeforeMethodIsRepresentedInTestResult)
+    assertEquals(exceptionInBeforeTest.run(), TestResult(1, 0))
   }
 
 
