@@ -9,7 +9,7 @@ class Before(before: => Any, test: Test) extends Test {
       case Success(_) =>
         test.run()
       case Failure(_) =>
-        TestResult(0, 0)
+        TestResult(0, 0, beforeFailed = true)
     }
   }
 

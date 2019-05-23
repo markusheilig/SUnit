@@ -15,7 +15,7 @@ object TestTemplate {
     val result = new TestCase(() => {})
       .before(throw new RuntimeException)
       .run()
-    Assert.assertEquals(result, TestResult(0, 0))
+    Assert.assertEquals(result, TestResult(0, 0, beforeFailed = true))
   }
 
   def testExceptionInAfterMethodIsNotCountedAsFailure(): Unit = {
@@ -36,6 +36,18 @@ object TestTemplate {
       .after(order += "after3 ")
       .run()
     Assert.assertEquals(order, "before1 before2 before3 run after1 after2 after3 ")
+  }
+
+  def testAfterIsNotCalledWhenBeforeThrowsAnException(): Unit = {
+    var order = ""
+    new TestCase(() => order += "run ")
+      .before {
+        order += "before "
+        throw new RuntimeException
+      }.after {
+        order += "after "
+      }.run()
+    Assert.assertEquals(order, "before ")
   }
 
 }

@@ -6,7 +6,9 @@ class After(after: => Any, test: Test) extends Test {
 
   override def run(): TestResult = {
     val testResult = test.run()
-    val _ = Try(after)
+    if (!testResult.beforeFailed) {
+      val _ = Try(after)
+    }
     testResult
   }
 }

@@ -6,6 +6,7 @@ object Main {
 
   def main(args: Array[String]): Unit = {
 
+
     assertEquals(new TestCase(TestTestCase.testDoNothing).run(), TestResult(1, 0))
     assertEquals(new TestCase(TestAssert.testAssertDoesNotThrowIfActualEqualsExpected).run(), TestResult(1, 0))
     assertEquals(new TestCase(TestAssert.testAssertThrowsIfActualDoesNotEqualExpected).run(), TestResult(1, 1))
@@ -29,6 +30,10 @@ object Main {
 
     val chainBeforeAndAfterTest = new TestCase(TestTemplate.testChainMultipleAfterAndBeforeMethods)
     assertEquals(chainBeforeAndAfterTest.run(), TestResult(1, 0))
+
+
+    val afterIsNotCalledWhenBeforeThrowsAnExceptionTest = new TestCase(TestTemplate.testAfterIsNotCalledWhenBeforeThrowsAnException)
+    assertEquals(afterIsNotCalledWhenBeforeThrowsAnExceptionTest.run(), TestResult(1, 0))
   }
 
 
