@@ -5,10 +5,10 @@ object TestTemplate {
   def testBeforeRunAfterOrder(): Unit = {
     var order = ""
     new TestCase(() => order += " run ")
-     .before(order += "before")
+      .before(order += "before")
       .after(order += "after")
       .run()
-    Assert.assertEquals(order,"before run after")
+    Assert.assertEquals(order, "before run after")
   }
 
   def testExceptionInBeforeMethodIsNotCountedAsFailure(): Unit = {

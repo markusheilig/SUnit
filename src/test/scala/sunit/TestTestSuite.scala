@@ -1,6 +1,6 @@
 package sunit
 
-class TestTestSuite extends  {
+class TestTestSuite extends {
 
   def testSuiteRunsManyTests(): Unit = {
     val testSuite: TestSuite = new TestSuite()
@@ -13,9 +13,11 @@ class TestTestSuite extends  {
     def doesNothing(): Unit = {
 
     }
+
     def throws(): Unit = {
 
     }
+
     def assertionError(): Unit = {
 
     }

@@ -1,7 +1,6 @@
 package sunit
 
 
-
 object Assert {
 
   class AssertError(message: String) extends RuntimeException(message)
@@ -10,8 +9,8 @@ object Assert {
     if (actual != expected) {
       val message =
         s"""
-          |Actual value does not match expected value:
-          |'$actual' != '$expected'
+           |Actual value does not match expected value:
+           |'$actual' != '$expected'
         """.stripMargin
       throw new AssertError(message)
     }
