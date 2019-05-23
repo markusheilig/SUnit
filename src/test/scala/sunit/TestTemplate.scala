@@ -18,4 +18,11 @@ object TestTemplate {
     Assert.assertEquals(result, TestResult(0, 0))
   }
 
+  def testExceptionInAfterMethodIsNotCountedAsFailure(): Unit = {
+    val result = new TestCase(() => {})
+      .after(throw new RuntimeException)
+      .run()
+    Assert.assertEquals(result, TestResult(1, 0))
+  }
+
 }

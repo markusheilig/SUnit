@@ -4,7 +4,12 @@ class After(after: => Any, test: Test) extends Test {
 
   override def run(): TestResult = {
     val testResult = test.run()
-    after
+    try {
+      after
+    } catch {
+      // ignore
+      case _: Throwable =>
+    }
     testResult
   }
 }

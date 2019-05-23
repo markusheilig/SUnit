@@ -23,6 +23,9 @@ object Main {
 
     val exceptionInBeforeTest = new TestCase(TestTemplate.testExceptionInBeforeMethodIsNotCountedAsFailure)
     assertEquals(exceptionInBeforeTest.run(), TestResult(1, 0))
+
+    val exceptionInAfterTest = new TestCase(TestTemplate.testExceptionInAfterMethodIsNotCountedAsFailure)
+    assertEquals(exceptionInAfterTest.run(), TestResult(1, 0))
   }
 
 
