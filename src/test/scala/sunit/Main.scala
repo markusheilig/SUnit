@@ -26,6 +26,9 @@ object Main {
 
     val exceptionInAfterTest = new TestCase(TestTemplate.testExceptionInAfterMethodIsNotCountedAsFailure)
     assertEquals(exceptionInAfterTest.run(), TestResult(1, 0))
+
+    val chainBeforeAndAfterTest = new TestCase(TestTemplate.testChainMultipleAfterAndBeforeMethods)
+    assertEquals(chainBeforeAndAfterTest.run(), TestResult(1, 0))
   }
 
 

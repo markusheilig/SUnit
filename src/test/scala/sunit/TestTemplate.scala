@@ -25,4 +25,17 @@ object TestTemplate {
     Assert.assertEquals(result, TestResult(1, 0))
   }
 
+  def testChainMultipleAfterAndBeforeMethods(): Unit = {
+    var order = ""
+    new TestCase(() => order += "run ")
+      .before(order += "before3 ")
+      .before(order += "before2 ")
+      .after(order += "after1 ")
+      .after(order += "after2 ")
+      .before(order += "before1 ")
+      .after(order += "after3 ")
+      .run()
+    Assert.assertEquals(order, "before1 before2 before3 run after1 after2 after3 ")
+  }
+
 }
